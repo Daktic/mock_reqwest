@@ -12,9 +12,8 @@ async fn get_handler() -> impl Responder {
 #[post("/post")]
 async fn post_handler() -> impl Responder {
 
-    let client = reqwest::Client::new();
-    let res = client.get("https://google.com/").send().await.unwrap();
-    println!("{:?}", res);
+    let client = reqwest::Client::new(); // Causes Segfault
+
     HttpResponse::Ok().body("Hello, this is a POST request!")
 }
 
